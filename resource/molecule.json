@@ -1,15 +1,32 @@
 {
     "name": "molecule",
     "description": "SilverStripe Molecule",
-    "employee": {
-        "firstName": "first",
-        "lastName": "last",
-        "role": "role",
-        "team": "team",
-        "manager": "manager"
-    },
-    "team": {
-        "teamName": "name",
-        "employee": "employee"
-    }
+    "employees": [
+        {
+            "firstName": "first",
+            "lastName": "last",
+            "role": "role",
+            "teams": [
+                {
+                    "team": "team"
+                }
+            ],
+            "managers": [
+                {
+                    "firstName": "name",
+                    "lastName": "last"
+                },
+            ]
+        },
+    ],
+    "teams": [
+        {
+            "teamName": "name",
+            "employees": [
+                {
+                    "employee": "employee"
+                }
+            ]
+        },
+    ]
 }
