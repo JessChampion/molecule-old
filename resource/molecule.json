@@ -1,0 +1,15 @@
+{
+    "name": "molecule",
+    "description": "SilverStripe Molecule",
+    "employee": {
+        "firstName": "first",
+        "lastName": "last",
+        "role": "role",
+        "team": "team",
+        "manager": "manager"
+    },
+    "team": {
+        "teamName": "name",
+        "employee": "employee"
+    }
+}
