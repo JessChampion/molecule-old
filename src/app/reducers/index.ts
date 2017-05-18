@@ -1,7 +1,7 @@
-
 import { Store } from 'redux';
 
-import { ISampleState } from './reducers/sample';
+import { IModelState } from './reducers/model';
+import { IViewModelState } from './reducers/viewModel';
 
 //
 // Store interfaces
@@ -12,9 +12,11 @@ import { ISampleState } from './reducers/sample';
 //
 
 export interface IStore {
-    sample: ISampleState;
+    viewModel: IViewModelState;
+    model: IModelState;
 }
 
 export interface IStoreContext { store: Store<any>; }
 
-export { default as sample } from './reducers/sample';
+export { default as model } from './reducers/model';
+export { default as viewModel } from './reducers/viewModel';
