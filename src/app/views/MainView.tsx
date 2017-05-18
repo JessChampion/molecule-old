@@ -1,8 +1,8 @@
 ﻿import * as React from 'react';
 import {loadModel} from '../actions/model';
-import {IStore, IStoreContext} from '../reducers';
 import View from '../components/View';
 import ViewController from '../components/ViewController';
+import {IStore, IStoreContext} from '../reducers';
 
 const testJson = {
     people: [

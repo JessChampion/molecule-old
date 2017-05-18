@@ -144,7 +144,7 @@ gulp.task('typescript', function () {
       diagnostics: true,
       jsx: 'react',
       module: 'commonjs',
-      target: 'ES5',
+      target: 'es2015',
       noImplicitAny: false,
       sourceMap: false
     }));
