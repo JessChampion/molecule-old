@@ -1,0 +1,28 @@
+{
+    "name": "molecule",
+    "description": "SilverStripe Molecule",
+    "people": [
+        {
+            "firstName": "first",
+            "lastName": "last",
+            "role": "role",
+            "teams": [
+                {
+                    "team": "team"
+                }
+            ],
+            "managers": [
+                {
+                    "firstName": "name",
+                    "lastName": "last"
+                },
+            ]
+        },
+    ],
+    "teams": [
+        {
+            "teamName": "name",
+            "members": "people"
+        },
+    ]
+}
