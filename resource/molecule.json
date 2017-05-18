@@ -1,7 +1,7 @@
 {
     "name": "molecule",
     "description": "SilverStripe Molecule",
-    "employees": [
+    "people": [
         {
             "firstName": "first",
             "lastName": "last",
@@ -22,11 +22,7 @@
     "teams": [
         {
             "teamName": "name",
-            "employees": [
-                {
-                    "employee": "employee"
-                }
-            ]
+            "members": "people"
         },
     ]
 }
