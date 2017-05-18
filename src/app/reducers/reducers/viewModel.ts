@@ -5,6 +5,8 @@ export interface IViewModelState {
 }
 
 const parseModel = (jsonModel) => {
+  console.log('here');
+  console.log(jsonModel);
   return jsonModel;
 };
 
