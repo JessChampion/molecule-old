@@ -35,6 +35,7 @@ const setTeamColor = (team, color, atoms) => {
 const getTeams = R.useWith(R.compose(R.prop('team'), R.find), [R.propEq('id'), R.identity]);
 
 const createPersonView = (target, people) => {
+    target = parseInt(target, 10);
     const teams = getTeams(target, people);
     let atoms = processPeople(people);
     R.forEach((team) => {
