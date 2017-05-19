@@ -46,11 +46,11 @@ const createPersonView = (target, people) => {
 export default function modelReducer(state: IViewModelState = {atoms: []}, action): IViewModelState {
     switch (action.type) {
         case UPDATE_VIEW_MODEL: {
-            state.atoms = createPersonView(action.target, action.people);
+            state.atoms = parseModel(action.people);
             return state;
         }
         case CREATE_PERSON_VIEW: {
-            state.atoms = parseModel(action.model);
+            state.atoms = createPersonView(action.target, action.people);
             return state;
         }
     }
