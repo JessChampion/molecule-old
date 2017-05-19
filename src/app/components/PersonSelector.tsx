@@ -1,7 +1,6 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import {updateViewModel} from '../actions/viewModel';
 import {IStore, IStoreContext} from '../reducers';
-import PersonSelector from './PersonSelector';
 
 // User controls etc go here
 
@@ -12,7 +11,7 @@ function mapStateFromStore(store: IStore): any {
     };
 }
 
-export default class ViewController extends React.Component<any, any> {
+export default class PersonSelector extends React.Component<any, any> {
     static contextTypes: React.ValidationMap<any> = {
         store: React.PropTypes.object
     };
@@ -43,20 +42,23 @@ export default class ViewController extends React.Component<any, any> {
         this.setState(mapStateFromStore(this.context.store.getState()));
     }
 
-    componentWillUpdate(nextProps, nextState) {
-       this.processChange(nextState);
-    }
-
-    async processChange(nextState) {
-        if (this.state.model !== nextState.model) {
-            await this.setStateFromStore();
-            this.context.store.dispatch(updateViewModel(this.state.model.people));
-        }
+    handleChange(event) {
+        // this.setState({value: event.target.value});
+        console.log("PRINT SELECT");
+        console.log(event.target.value);
     }
 
     render() {
+        const people = this.state.model ? this.state.model.people : [];
+        let selected = null;
         return (
-            <div><PersonSelector/></div>
+            <div>Some Controls go here
+                <select onChange={this.handleChange}>
+                    {people.map(function(person){
+                        return <option key={person.firstName}>{person.firstName}</option>;
+                    })}
+                </select>
+            </div>
         );
     }
 }
