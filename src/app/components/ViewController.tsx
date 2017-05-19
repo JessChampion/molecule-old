@@ -49,7 +49,7 @@ export default class ViewController extends React.Component<any, any> {
     async processChange(nextState) {
         if (this.state.model !== nextState.model) {
             await this.setStateFromStore();
-            this.context.store.dispatch(updateViewModel(this.state.model));
+            this.context.store.dispatch(updateViewModel(this.state.model.people));
         }
     }
 
