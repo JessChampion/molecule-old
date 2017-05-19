@@ -19,6 +19,7 @@ export default class View extends React.Component<any, any> {
     context: IStoreContext;
     unsubscribe: Function;
     world: any;
+    molecules: Array<any>;
 
     constructor(props: any) {
         super(props);
@@ -28,6 +29,7 @@ export default class View extends React.Component<any, any> {
         }
 
         this.addCircle = this.addCircle.bind(this);
+        this.molecules = [];
     }
 
     componentDidMount() {
@@ -44,38 +46,47 @@ export default class View extends React.Component<any, any> {
         }
     }
 
+    componentDidUpdate() {
+        this.state.atoms.forEach((atom) => {
+            this.addCircle(atom);
+        });
+    }
+
     setStateFromStore() {
         this.setState(mapStateFromStore(this.context.store.getState()));
     }
 
     render() {
-        console.log(this.state.atoms);
-
         return (
             <div>
                 <p>Hello, {JSON.stringify(this.state.atoms)}!</p>
-                <a onClick={this.addCircle}>
-                    Add circle
-                </a>
             </div>
         );
     }
 
-    addCircle(e) {
-        e.preventDefault();
-
-        // add a circle
-        this.world.add(
-            Physics.body('circle', {
-                x: 50, // x-coordinate
+    addCircle(atom) {
+        if (this.molecules[atom.person.id] === void 0) {
+            // add a circle
+            let circle = Physics.body('circle', {
+                x: 50 + (atom.person.id * 60), // x-coordinate
                 y: 30, // y-coordinate
                 vx: 0.2, // velocity in x-direction
                 vy: 0.01, // velocity in y-direction
-                radius: 20
-            })
-        );
+                radius: atom.color === 'yellow' ? 40 : 20
+            });
 
-        this.world.step(new Date());
+            this.molecules[atom.person.id] = circle;
+
+            this.world.add(circle);
+
+            this.world.step(new Date());
+        } else {
+            this.molecules[atom.person.id].radius = atom.color === 'yellow' ? 40 : 20;
+
+            console.log(this.molecules);
+
+            this.world.step(new Date());
+        }
     }
 
     initWorld() {
