@@ -32,7 +32,7 @@ const setTeamColor = (team, color, atoms) => {
     }, atoms);
     return atoms;
 };
-const getTeams = R.useWith(R.compose(R.prop('team'), R.find), [R.propEq('firstName'), R.identity]);
+const getTeams = R.useWith(R.compose(R.prop('team'), R.find), [R.propEq('id'), R.identity]);
 
 const createPersonView = (target, people) => {
     const teams = getTeams(target, people);
