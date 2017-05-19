@@ -7,6 +7,7 @@ import {IStore, IStoreContext} from '../reducers';
 const testJson = {
     people: [
         {
+            id: 1,
             firstName: 'Jess',
             lastName: 'Champion',
             team: [
@@ -14,6 +15,7 @@ const testJson = {
             ]
         },
         {
+            id: 2,
             firstName: 'Tim',
             lastName: 'Kung',
             team: [
@@ -21,6 +23,7 @@ const testJson = {
             ]
         },
         {
+            id: 3,
             firstName: 'Tobie',
             lastName: 'Jamie',
             team: [
@@ -28,6 +31,7 @@ const testJson = {
             ]
         },
         {
+            id: 4,
             firstName: 'James',
             lastName: 'Ford',
             team: [
