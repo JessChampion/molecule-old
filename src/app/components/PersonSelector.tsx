@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {updateViewModel} from '../actions/viewModel';
 import {IStore, IStoreContext} from '../reducers';
+import {createPersonView} from '../actions/viewModel';
 
 // User controls etc go here
 
@@ -43,9 +44,8 @@ export default class PersonSelector extends React.Component<any, any> {
     }
 
     handleChange(event) {
-        // this.setState({value: event.target.value});
-        console.log("PRINT SELECT");
         console.log(event.target.value);
+        this.context.store.dispatch(createPersonView(event.target.value, this.state.model.people));
     }
 
     render() {
@@ -53,9 +53,9 @@ export default class PersonSelector extends React.Component<any, any> {
         let selected = null;
         return (
             <div>Some Controls go here
-                <select onChange={this.handleChange}>
+                <select onChange={(evt)=>this.handleChange(evt)}>
                     {people.map(function(person){
-                        return <option key={person.firstName}>{person.firstName}</option>;
+                        return <option key={person.id} value={person.id}>{person.firstName}</option>;
                     })}
                 </select>
             </div>
