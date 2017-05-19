@@ -8,7 +8,6 @@ import NotFoundView from './views/NotFoundView';
 const routeMap = (
     <Route path="/" component={AppFrame}>
         <IndexRoute component={MainView}/>
-        <Route path="*" component={NotFoundView} />
     </Route>
 );
 

@@ -32,6 +32,7 @@ const setTeamColor = (team, color, atoms) => {
     }, atoms);
     return atoms;
 };
+
 const getTeams = R.useWith(R.compose(R.prop('team'), R.find), [R.propEq('id'), R.identity]);
 
 const createPersonView = (target, people) => {
@@ -43,6 +44,7 @@ const createPersonView = (target, people) => {
     }, teams);
     return atoms;
 };
+
 
 export default function modelReducer(state: IViewModelState = {atoms: []}, action): IViewModelState {
     switch (action.type) {
