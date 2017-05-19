@@ -1,4 +1,5 @@
 .idea
+.DS_Store
 # Exclude Node.js packages
 node_modules/
 typings/
