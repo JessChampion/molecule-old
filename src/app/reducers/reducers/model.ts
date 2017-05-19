@@ -5,8 +5,8 @@ export interface IModelState {
 }
 
 const parseJSON = (jsonModel) => {
-  // fire event to generate view model
-  return jsonModel;
+  console.log('load model from JSON');
+  return jsonModel.people;
 };
 
 export default function modelReducer(state: IModelState = {people: []}, action): IModelState {

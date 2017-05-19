@@ -7,7 +7,7 @@ const store = createStore(rootReducer);
 store.subscribe(() => {
     // Log the state whenever the store changes.
     console.log(store.getState());
-  });
+});
 
 export interface IStoreContext { store: Store<any>; }
 
