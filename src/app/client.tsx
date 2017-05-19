@@ -5,7 +5,7 @@ import {browserHistory, Router} from 'react-router';
 import routes from './routes';
 import store from './store';
 
-export default ReactDOM.render((
+ReactDOM.render((
     <Provider
       store={store}>
       <Router history={browserHistory}>{routes}</Router>
