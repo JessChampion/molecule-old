@@ -50,13 +50,11 @@ export default class PersonSelector extends React.Component<any, any> {
 
     render() {
         const people = this.state.model ? this.state.model.people : [];
-        let selected = null;
         return (
             <div>Some Controls go here
-                <select onChange={(evt)=>this.handleChange(evt)}>
-                    {people.map(function(person){
-                        return <option key={person.id} value={person.id}>{person.firstName}</option>;
-                    })}
+                <select onChange={(evt) => this.handleChange(evt)}>
+                    <option key="default" value={-1}>Pick someone...</option>
+                    {people.map((person) => <option key={person.id} value={person.id}>{person.firstName}</option>)};
                 </select>
             </div>
         );

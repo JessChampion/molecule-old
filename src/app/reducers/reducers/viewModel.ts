@@ -36,15 +36,17 @@ const setTeamColor = (team, color, atoms) => {
 const getTeams = R.useWith(R.compose(R.prop('team'), R.find), [R.propEq('id'), R.identity]);
 
 const createPersonView = (target, people) => {
+    let atoms = processPeople(people);
+    if (target < 0) {
+        return atoms;
+    }
     target = parseInt(target, 10);
     const teams = getTeams(target, people);
-    let atoms = processPeople(people);
     R.forEach((team) => {
         atoms = setTeamColor(team, 'yellow', atoms);
     }, teams);
     return atoms;
 };
-
 
 export default function modelReducer(state: IViewModelState = {atoms: []}, action): IViewModelState {
     switch (action.type) {
