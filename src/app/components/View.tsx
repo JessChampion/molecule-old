@@ -41,6 +41,6 @@ export default class ViewController extends React.Component<any, any> {
     }
 
     render() {
-        return <p>Hello, {this.props.viewModel}!</p>;
+        return (<p>Hello, {JSON.stringify(this.state.atoms)}!</p>);
     }
 }
