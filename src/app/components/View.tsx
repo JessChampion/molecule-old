@@ -27,6 +27,7 @@ export default class ViewController extends React.Component<any, any> {
     componentDidMount() {
         // This helper wraps common code so we can initialze state and then subscribe.
         this.setStateFromStore();
+        this.unsubscribe = this.context.store.subscribe(this.setStateFromStore.bind(this));
     }
 
     componentWillUnmount() {
